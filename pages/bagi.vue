@@ -1,5 +1,9 @@
 <template>
   <div class="w-full md:px-[20vw] flex flex-col gap-20">
+    <Head>
+      <Title>Bagi Menu - Petepete</Title>
+    </Head>
+
     <Header />
 
     <div class="flex flex-col gap-8">

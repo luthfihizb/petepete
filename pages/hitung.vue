@@ -1,5 +1,9 @@
 <template>
   <div class="w-full md:px-[20vw] flex flex-col gap-20">
+    <Head>
+      <Title>Invoice - Petepete</Title>
+    </Head>
+
     <Header />
 
     <div class="bg-gray-100 p-6 flex flex-col gap-8 shadow-md" id="print-invoice">

@@ -1,5 +1,13 @@
 <template>
   <div class="w-full h-[80vh] flex flex-col gap-4 justify-center items-center">
+    <Head>
+      <Title>Pisah Bon Online - Petepete</Title>
+      <Meta
+        name="description"
+        content="Pisah Bon Online, mendukung berbagai format bon seperti GoFood, GrabFood, dan masih banyak lagi"
+      />
+    </Head>
+
     <h1 class="font-heading text-5xl font-semibold">petepete</h1>
     <p class="text-center">
       ..karna <b>pisah bon</b> adalah <br />
