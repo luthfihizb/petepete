@@ -205,7 +205,9 @@ const saveTransferInfo = () => {
 };
 const retrieveTransferInfo = () => {
   const savedTransferInfoCookie = useCookie("saved_transfer_info");
-  transferInfo.value = savedTransferInfoCookie.value;
+  if (savedTransferInfoCookie?.value) {
+    transferInfo.value = savedTransferInfoCookie.value;
+  }
 };
 const calculate = () => {
   saveMembers();

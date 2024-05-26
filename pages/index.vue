@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[88vh] flex flex-col gap-4 justify-between items-center">
+  <div class="w-full md:px-[36vw] h-[88vh] flex flex-col gap-4 justify-between items-center">
     <Head>
       <Title>Pisah Bon Online - Petepete</Title>
       <Meta
@@ -43,7 +43,7 @@
           @change="uploadInvoice"
         />
       </label>
-      <NuxtLink class="text-center font-semibold" to="/bagi">Isi Sendiri</NuxtLink>
+      <NuxtLink class="text-center font-semibold mb-4" to="/bagi">Isi Sendiri</NuxtLink>
     </div>
   </div>
 </template>
