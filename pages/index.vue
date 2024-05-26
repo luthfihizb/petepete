@@ -23,7 +23,7 @@
           id="upload-invoice"
           name="upload-invoice"
           type="file"
-          accept="image/jpeg"
+          accept=".pdf"
           @change="uploadInvoice"
         />
       </label>
@@ -41,7 +41,7 @@ const uploadInvoice = async (e) => {
   ocrLoading.value = true;
 
   const file = e.target.files[0];
-  await useInvoiceReader(file);
+  await useInvoiceReaderPdf(file);
 
   ocrLoading.value = false;
 };
