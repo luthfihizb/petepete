@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[80vh] flex flex-col gap-4 justify-center items-center">
+  <div class="w-full h-[88vh] flex flex-col gap-4 justify-between items-center">
     <Head>
       <Title>Pisah Bon Online - Petepete</Title>
       <Meta
@@ -8,16 +8,32 @@
       />
     </Head>
 
-    <h1 class="font-heading text-5xl font-semibold">petepete</h1>
-    <p class="text-center">
-      ..karna <b>pisah bon</b> adalah <br />
-      lambang keadilan dan kesejahteraan
-    </p>
+    <Header />
 
-    <div class="flex flex-col">
+    <div class="p-4 mt-6">
+      <img src="../assets/img/hero-01.png" />
+    </div>
+
+    <h2 class="text-left text-4xl w-full">
+      Sekarang, <br />
+      <b>Pisah Bon</b> jadi<br />
+      makin gampang
+    </h2>
+
+    <div class="flex flex-col w-full">
+      <p class="whitespace-nowrap text-sm">Format bon mendukung:</p>
+      <div>
+        <img
+          class="object-contain h-4"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Gofood_logo.svg/2560px-Gofood_logo.svg.png"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-col w-full gap-2">
       <div v-if="ocrLoading" class="btn-primary"><Icon name="svg-spinners:3-dots-fade" size="1.5em" /></div>
       <label v-else for="upload-invoice">
-        <div class="btn-primary w-80 gap-2"><ArrowUpTrayIcon class="w-4" /> Unggah Bon</div>
+        <div class="btn-primary gap-2"><ArrowUpTrayIcon class="w-4" /> Unggah Bon</div>
         <input
           class="sr-only"
           id="upload-invoice"
@@ -27,8 +43,18 @@
           @change="uploadInvoice"
         />
       </label>
-      <NuxtLink class="btn-secondary w-80" to="/bagi">Isi Sendiri</NuxtLink>
+      <NuxtLink class="text-center font-semibold" to="/bagi">Isi Sendiri</NuxtLink>
     </div>
+
+    <!-- <div class="mt-4">
+      <p>Format bon yang didukung</p>
+      <div class="flex justify-center">
+        <img
+          class="h-6"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Gojek_logo_2022.svg/2560px-Gojek_logo_2022.svg.png"
+        />
+      </div>
+    </div> -->
   </div>
 </template>
 

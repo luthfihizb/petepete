@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full md:px-[20vw] flex flex-col gap-20">
+  <div class="w-full md:px-[10vw] flex flex-col gap-10">
     <Head>
       <Title>Invoice - Petepete</Title>
     </Head>
@@ -21,7 +21,7 @@
           <thead class="text-left">
             <th class="w-10">No.</th>
             <th>Member</th>
-            <th class="w-1/3 text-right">Harus dibayar</th>
+            <th class="w-1/3 text-right">Harus bayar</th>
           </thead>
           <tr v-for="(member, iMember) in calculatedMembers" :key="iMember">
             <td>{{ iMember + 1 }}</td>
@@ -58,7 +58,7 @@
             </tr>
             <tr>
               <td></td>
-              <td class="pl-4">Biaya aplikasi (service)</td>
+              <td class="pl-4">Biaya aplikasi</td>
               <td class="text-right">{{ rupiah.format(calculatedOrder.servicePerMember) }}</td>
             </tr>
             <tr>
@@ -108,8 +108,8 @@
       </div>
 
       <div class="flex flex-col items-center text-xs">
-        <p>Sudahi laparmu, mari <b>split bill</b> bersamaku</p>
-        <span>petepete.netlify.app</span>
+        <p><b>Pisah Bon</b> jadi gampang pakai <b>petepete</b></p>
+        <p class="underline underline-offset-4">petepete.netlify.app</p>
       </div>
     </div>
 

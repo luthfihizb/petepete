@@ -7,23 +7,23 @@
 }
 
 body {
-  background-color: #dcd4cd;
-  color: #2c2e23;
+  background-color: #e8efeb;
+  color: #283a32;
   padding: 20px;
   font-family: "Baloo Tamma 2";
 }
 
 @layer components {
   .btn-primary {
-    @apply flex justify-center items-center mt-4 py-3 rounded-xl bg-dark-green active:bg-dark-green/[.9] text-white font-bold;
+    @apply flex justify-center items-center mt-4 py-3 rounded-xl bg-[#283a32] active:bg-[#283a32]/[.9] text-white text-lg;
   }
 
   .btn-secondary {
-    @apply flex justify-center items-center mt-4 py-3 rounded-xl border-dark-green border-2 active:bg-dark-green/[.1];
+    @apply flex justify-center items-center mt-4 py-3 rounded-xl border-[#283a32] border-2 active:bg-[#283a32]/[.1];
   }
 
   .form-btn {
-    @apply rounded-md border-dark-green border-[1px] px-4 py-2 active:bg-dark-green/[.1];
+    @apply rounded-md border-[#283a32] border-[1px] px-4 py-2 active:bg-[#283a32]/[.1];
   }
 
   #print-invoice {
