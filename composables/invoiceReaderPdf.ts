@@ -20,17 +20,15 @@ export const useInvoiceReaderPdf = async (file: File) => {
           .filter((item) => item)
           .join(" ");
 
-        if (!content) {
-          alert("Format bon tidak dikenali");
-          return;
-        }
+        const router = useRouter();
 
         if (content.includes("Gojek")) {
           gojekInvoiceParser(content);
+          router.push("/bagi");
+          return;
         }
 
-        const router = useRouter();
-        router.push("/bagi");
+        alert("Format bon tidak dikenali");
       });
     });
   });
