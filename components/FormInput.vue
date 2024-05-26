@@ -6,7 +6,7 @@
     :value="props.modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     :class="
-      `bg-[#e8efeb] rounded-md border-gray-500 border-[1px] px-2 py-2 placeholder:font-normal focus:outline outline-offset-2 outline-green-900 ` +
+      `bg-transparent rounded-md border-[1px] px-2 py-2 placeholder:font-normal focus:outline outline-offset-2 outline-green-900 ` +
       props.class
     "
   />

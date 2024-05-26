@@ -31,6 +31,18 @@
         </table>
       </div>
 
+      <div v-if="transferInfo.name && transferInfo.info.length > 0" class="flex flex-col items-center">
+        <p>
+          Bayar ke <b>{{ transferInfo.name }}</b
+          >:
+        </p>
+
+        <div v-for="(info, iInfo) in transferInfo.info" :key="iInfo" class="flex flex-col items-center mb-4">
+          <h3 class="text-xl font-bold">{{ info.number }}</h3>
+          <p>{{ info.name }}</p>
+        </div>
+      </div>
+
       <div class="flex flex-col text-sm">
         <b>Detail Transaksi</b>
         <hr class="my-2 border-gray-500" />
@@ -128,6 +140,7 @@ const rupiah = new Intl.NumberFormat("id-ID", {
 
 const order = useOrder();
 const members = useMembers();
+const transferInfo = useTransferInfo();
 
 const memberCount = members.value.length;
 const calculatedMembers = [
@@ -164,11 +177,5 @@ const printInvoice = async () => {
   link.setAttribute("download", `${calculatedOrder.restaurant} - ${moment().format("DD-MM-YYYY_kk-mm")}.png`);
   link.setAttribute("href", printCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
   link.click();
-
-  saveMembers();
-};
-const saveMembers = () => {
-  const savedMembersCookie = useCookie("saved_members");
-  savedMembersCookie.value = JSON.stringify(calculatedMembers.map((member) => member.name));
 };
 </script>

@@ -45,16 +45,6 @@
       </label>
       <NuxtLink class="text-center font-semibold" to="/bagi">Isi Sendiri</NuxtLink>
     </div>
-
-    <!-- <div class="mt-4">
-      <p>Format bon yang didukung</p>
-      <div class="flex justify-center">
-        <img
-          class="h-6"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Gojek_logo_2022.svg/2560px-Gojek_logo_2022.svg.png"
-        />
-      </div>
-    </div> -->
   </div>
 </template>
 

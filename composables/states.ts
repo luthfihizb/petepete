@@ -18,3 +18,8 @@ export const useMembers = () =>
       ],
     },
   ]);
+export const useTransferInfo = () =>
+  useState("transferInfo", () => ({
+    name: "",
+    info: [],
+  }));
