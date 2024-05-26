@@ -21,7 +21,7 @@
     </h2>
 
     <div class="flex flex-col w-full">
-      <p class="whitespace-nowrap text-sm">Format bon mendukung:</p>
+      <p class="whitespace-nowrap text-sm">Mendukung format bon:</p>
       <div>
         <img
           class="object-contain h-4"
