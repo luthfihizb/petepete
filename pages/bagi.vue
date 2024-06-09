@@ -42,11 +42,12 @@
           class="flex flex-col gap-4"
         >
           <template #item="{ element: menu, index: iMenu }">
-            <div class="flex gap-2">
+            <div class="flex gap-3">
               <div class="flex handle">
                 <EllipsisVerticalIcon class="w-4 -mr-[10px]" />
                 <EllipsisVerticalIcon class="w-4" />
               </div>
+              <DocumentDuplicateIcon class="w-8" @click="duplicateMenu(iMember, iMenu)" />
               <FormInput placeholder="Menu" v-model="menu.name" class="text-sm w-full" />
               <FormInput placeholder="Harga" v-model="menu.price" type="number" class="w-20 text-sm text-right" />
               <MinusCircleIcon class="w-10" @click="removeMenu(iMember, iMenu)" />
@@ -156,6 +157,7 @@ import {
   UserIcon,
   MinusCircleIcon,
   UserPlusIcon,
+  DocumentDuplicateIcon,
 } from "@heroicons/vue/24/outline";
 import draggable from "vuedraggable";
 import { v4 as uuidv4 } from "uuid";
@@ -188,6 +190,13 @@ const addMenu = (iMember) => {
 };
 const removeMenu = (iMember, index) => {
   members.value[iMember].menus = members.value[iMember].menus.filter((_, iMenu) => iMenu !== index);
+};
+const duplicateMenu = (iMember, index) => {
+  members.value[iMember].menus.push({
+    id: uuidv4(),
+    name: members.value[iMember].menus[index].name,
+    price: members.value[iMember].menus[index].price,
+  });
 };
 const addTransferInfo = () => {
   transferInfo.value.info.push({ name: "", number: "" });

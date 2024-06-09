@@ -22,7 +22,7 @@ export const useInvoiceReaderPdf = async (file: File) => {
 
         const router = useRouter();
 
-        if (content.includes("Gojek")) {
+        if (content.toLowerCase().includes("gojek") || content.toLowerCase().includes("gofood")) {
           gojekInvoiceParser(content);
           router.push("/bagi");
           return;
@@ -40,7 +40,7 @@ const gojekInvoiceParser = (content: string) => {
   const menuItemPattern = /(\d+)\s+(.+?)\s+@Rp(\d{1,3}(?:\.\d{3})*)\s+Rp(\d{1,3}(?:\.\d{3})*)/g;
   const deliveryPricePattern = /biaya.+pengiriman\s+Rp(\d{1,3}(?:\.\d{3})*)/gi;
   const servicePricePattern = /biaya.+lainnya\s+Rp(\d{1,3}(?:\.\d{3})*)/gi;
-  const discountPattern = /(discount|diskon|potongan)\s+?[^\n]*-Rp(\d{1,3}(?:\.\d{3})*)/gi;
+  const discountPattern = /(discount|diskon|potongan)[\sa-zA-Z]*-Rp(\d{1,3}(?:\.\d{3})*)/gi;
 
   // menu items
   const menuBlockMatch = content.match(menuPattern);
@@ -68,12 +68,15 @@ const gojekInvoiceParser = (content: string) => {
   const restaurantMatch = restaurantPattern.exec(content);
   const deliveryMatch = deliveryPricePattern.exec(content);
   const serviceMatch = servicePricePattern.exec(content);
-  const discountMatch = discountPattern.exec(content);
 
   if (restaurantMatch) orderInfo.restaurant = restaurantMatch[2];
   if (deliveryMatch) orderInfo.delivery = deliveryMatch[1].replace(".", "");
   if (serviceMatch) orderInfo.service = serviceMatch[1].replace(".", "");
-  if (discountMatch) orderInfo.discount = discountMatch[2].replace(".", "");
+
+  var discountMatch;
+  while ((discountMatch = discountPattern.exec(content))) {
+    if (discountMatch) orderInfo.discount = "" + (+discountMatch[2].replace(".", "") + +orderInfo.discount);
+  }
 
   fillInput(menuItems, orderInfo);
 };
